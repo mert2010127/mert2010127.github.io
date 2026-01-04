@@ -32,6 +32,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
+// Randevuları listele
 db.collection("randevular").orderBy("zaman","desc").onSnapshot(snapshot=>{
   const liste=document.getElementById("liste");
   liste.innerHTML="";
