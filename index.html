@@ -12,11 +12,11 @@ body {
   background: #f2f2f2;
 }
 
-/* ÜST MENÜ */
+/* NAVBAR */
 .navbar {
   background: black;
-  padding: 15px;
   color: white;
+  padding: 15px;
   display: flex;
   justify-content: space-between;
 }
@@ -26,20 +26,21 @@ body {
   margin-left: 15px;
 }
 
-/* BAŞLIK */
+/* HERO */
 .hero {
   background: #222;
   color: white;
-  padding: 60px 20px;
   text-align: center;
+  padding: 50px 20px;
 }
 
-/* MODELLER */
+/* SECTIONS */
 .section {
   padding: 40px 20px;
   text-align: center;
 }
 
+/* MODELLER */
 .models {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
@@ -51,7 +52,7 @@ body {
 .card {
   background: white;
   border-radius: 8px;
-  padding-bottom: 15px;
+  overflow: hidden;
 }
 
 .card img {
@@ -72,79 +73,93 @@ body {
   cursor: pointer;
 }
 
-/* ALT */
-footer {
-  background: black;
-  color: white;
-  text-align: center;
-  padding: 15px;
+/* DETAY */
+#detay {
+  display: none;
+  background: white;
+  max-width: 600px;
+  margin: 30px auto;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+#detay img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.fiyat {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 15px 0;
 }
 </style>
 </head>
 
 <body>
 
-<!-- MENÜ -->
+<!-- NAVBAR -->
 <div class="navbar">
   <div>Ünye Elite Berber</div>
   <div>
     <a href="#modeller">Modeller</a>
-    <a href="#iletisim">İletişim</a>
   </div>
 </div>
 
-<!-- BAŞLIK -->
+<!-- HERO -->
 <div class="hero">
-  <h1>Tarzını Seç</h1>
-  <p>Beğendiğin modeli göster, aynısını yapalım</p>
+  <h1>Saç Modelini Seç</h1>
+  <p>Beğendiğin modeli seç, fiyatını gör</p>
 </div>
 
 <!-- MODELLER -->
 <div class="section" id="modeller">
-  <h2>Saç Modelleri</h2>
+  <h2>Modeller</h2>
 
   <div class="models">
 
     <div class="card">
       <img src="https://picsum.photos/300/200?1">
       <h3>Fade Kesim</h3>
-      <button onclick="sec('Fade Kesim')">Bu Modeli İstiyorum</button>
+      <button onclick="goster('Fade Kesim', '250 TL', this)">Seç</button>
     </div>
 
     <div class="card">
       <img src="https://picsum.photos/300/200?2">
       <h3>Klasik Model</h3>
-      <button onclick="sec('Klasik Model')">Bu Modeli İstiyorum</button>
+      <button onclick="goster('Klasik Model', '200 TL', this)">Seç</button>
     </div>
 
     <div class="card">
       <img src="https://picsum.photos/300/200?3">
       <h3>Sakal + Saç</h3>
-      <button onclick="sec('Sakal + Saç')">Bu Modeli İstiyorum</button>
-    </div>
-
-    <div class="card">
-      <img src="https://picsum.photos/300/200?4">
-      <h3>Asker Tıraşı</h3>
-      <button onclick="sec('Asker Tıraşı')">Bu Modeli İstiyorum</button>
+      <button onclick="goster('Sakal + Saç', '300 TL', this)">Seç</button>
     </div>
 
   </div>
 </div>
 
-<!-- İLETİŞİM -->
-<div class="section" id="iletisim">
-  <h2>Randevu</h2>
-  <p>📞 0535 123 45 67</p>
+<!-- DETAY ALANI -->
+<div id="detay">
+  <h2 id="detayBaslik"></h2>
+  <img id="detayResim">
+  <div class="fiyat" id="detayFiyat"></div>
+  <button onclick="alert('Randevu alındı!')">Randevu Al</button>
 </div>
 
-<footer>
-  © 2026 Ünye Elite Berber
-</footer>
-
 <script>
-function sec(model) {
-  alert(model + " seçildi!");
+function goster(ad, fiyat, buton) {
+  const kart = buton.parentElement;
+  const resim = kart.querySelector("img").src;
+
+  document.getElementById("detayBaslik").innerText = ad;
+  document.getElementById("detayFiyat").innerText = "Fiyat: " + fiyat;
+  document.getElementById("detayResim").src = resim;
+
+  document.getElementById("detay").style.display = "block";
+  document.getElementById("detay").scrollIntoView({ behavior: "smooth" });
 }
 </script>
 
