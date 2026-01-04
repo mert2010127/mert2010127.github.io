@@ -2,53 +2,49 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Mert | Ana Sayfa</title>
+  <title>Elite Erkek Kuaförü</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
     body {
-      min-height: 100vh;
-      background-color: #0f172a; /* koyu mavi */
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
       color: white;
     }
 
     /* NAVBAR */
     .navbar {
-      height: 70px;
-      padding: 0 40px;
+      background-color: black;
+      padding: 15px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #020617;
     }
 
     .logo {
       font-size: 22px;
       font-weight: bold;
+      color: #ffd700;
     }
 
-    .menu button {
-      background: none;
-      border: none;
+    .menu a {
       color: white;
-      font-size: 16px;
-      margin-left: 20px;
-      cursor: pointer;
+      text-decoration: none;
+      margin-left: 15px;
+      font-size: 15px;
     }
 
-    .menu button:hover {
-      color: #38bdf8;
+    .menu a:hover {
+      color: #ffd700;
     }
 
     /* HERO */
     .hero {
-      height: calc(100vh - 70px);
+      height: 90vh;
+      background-image: url("https://images.unsplash.com/photo-1503951458645-643d53bfd90f");
+      background-size: cover;
+      background-position: center;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -56,34 +52,45 @@
       padding: 20px;
     }
 
-    .hero-box {
-      max-width: 600px;
+    .hero h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 8px black;
     }
 
-    h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-
-    p {
+    .hero p {
       font-size: 18px;
-      margin-bottom: 30px;
-      color: #cbd5f5;
+      margin-bottom: 25px;
+      text-shadow: 2px 2px 8px black;
     }
 
     .hero button {
-      padding: 14px 28px;
-      font-size: 17px;
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #ffd700;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      background-color: #38bdf8;
-      color: black;
       font-weight: bold;
     }
 
-    .hero button:hover {
-      background-color: white;
+    /* SECTIONS */
+    section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .services div {
+      margin: 15px 0;
+      font-size: 18px;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: black;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -91,44 +98,53 @@
 
   <!-- NAVBAR -->
   <div class="navbar">
-    <div class="logo">MERT.dev</div>
+    <div class="logo">Elite Berber</div>
     <div class="menu">
-      <button onclick="degistir('ana')">Ana Sayfa</button>
-      <button onclick="degistir('hakkimda')">Hakkımda</button>
-      <button onclick="degistir('projeler')">Projeler</button>
+      <a href="#hakkimizda">Hakkımızda</a>
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#iletisim">İletişim</a>
     </div>
   </div>
 
   <!-- HERO -->
   <div class="hero">
-    <div class="hero-box">
-      <h1 id="baslik">Merhaba Dünya 👋</h1>
-      <p id="icerik">
-        Bu benim ilk düzgün çalışan web ana sayfam.
-      </p>
-      <button onclick="degistir('ana')">Başla 🚀</button>
+    <div>
+      <h1>Elite Erkek Kuaförü</h1>
+      <p>Profesyonel saç & sakal tasarımı</p>
+      <button onclick="randevu()">Randevu Al</button>
     </div>
   </div>
 
+  <!-- HAKKIMIZDA -->
+  <section id="hakkimizda">
+    <h2>Hakkımızda</h2>
+    <p>Yılların tecrübesiyle modern ve klasik saç kesimi hizmeti sunuyoruz.</p>
+  </section>
+
+  <!-- HİZMETLER -->
+  <section id="hizmetler" class="services">
+    <h2>Hizmetlerimiz</h2>
+    <div>✂️ Saç Kesimi</div>
+    <div>🧔 Sakal Tıraşı</div>
+    <div>💆 Cilt Bakımı</div>
+    <div>🔥 Fade & Modern Kesimler</div>
+  </section>
+
+  <!-- İLETİŞİM -->
+  <section id="iletisim">
+    <h2>İletişim</h2>
+    <p>📍 Merkez Mahallesi No:12</p>
+    <p>📞 0555 555 55 55</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Elite Erkek Kuaförü | Tüm Hakları Saklıdır
+  </footer>
+
   <script>
-    function degistir(sayfa) {
-      const baslik = document.getElementById("baslik");
-      const icerik = document.getElementById("icerik");
-
-      if (sayfa === "ana") {
-        baslik.innerText = "Merhaba Dünya 👋";
-        icerik.innerText = "Bu benim ilk düzgün çalışan web ana sayfam.";
-      }
-
-      if (sayfa === "hakkimda") {
-        baslik.innerText = "Hakkımda";
-        icerik.innerText = "Ben Mert. Yazılıma erken yaşta başladım.";
-      }
-
-      if (sayfa === "projeler") {
-        baslik.innerText = "Projeler";
-        icerik.innerText = "Şu an bu site en büyük projem 😎";
-      }
+    function randevu() {
+      window.location.href = "https://wa.me/905555555555";
     }
   </script>
 
