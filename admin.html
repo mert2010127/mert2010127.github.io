@@ -2,23 +2,67 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>Admin Panel - Ünye Elite Berber</title>
+<title>Ünye Elite Berber</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
 <style>
-body { font-family: Arial; background:#f2f2f2; margin:0; padding:20px; }
-h2{text-align:center;}
-ul{list-style:none; padding:0; max-width:600px; margin:auto;}
-li{background:white; margin:10px 0; padding:15px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.2);}
+body { font-family: Arial; background: #f2f2f2; margin:0; text-align:center; }
+input, select, button { padding:10px; margin:10px; width:80%; max-width:300px; }
+button { cursor:pointer; background:black; color:white; border:none; }
+.models { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; max-width:900px; margin:auto; margin-top:20px; }
+.card { background:white; padding-bottom:15px; border-radius:8px; }
+.card img { width:100%; height:200px; object-fit:cover; }
 </style>
 </head>
 <body>
 
-<h2>Randevular</h2>
-<ul id="liste"></ul>
+<h2>Kayıt / Giriş</h2>
+<input id="email" placeholder="E-posta"><br>
+<input id="password" type="password" placeholder="Şifre"><br>
+<button onclick="kayit()">Kayıt Ol</button>
+<button onclick="giris()">Giriş Yap</button>
+
+<div id="modellerDiv" style="display:none">
+  <h2>Model Seç</h2>
+  <div class="models">
+    <div class="card">
+      <img src="https://picsum.photos/300/200?1">
+      <h3>Fade Kesim</h3>
+      <button onclick="modelSec('Fade Kesim','250 TL')">Seç</button>
+    </div>
+    <div class="card">
+      <img src="https://picsum.photos/300/200?2">
+      <h3>Klasik Model</h3>
+      <button onclick="modelSec('Klasik Model','200 TL')">Seç</button>
+    </div>
+  </div>
+</div>
+
+<div id="randevuDiv" style="display:none">
+  <h2 id="secim"></h2>
+  <p id="fiyat"></p>
+  <input type="date" id="tarih"><br>
+  <select id="saat">
+    <option value="">Saat Seç</option>
+    <option>10:00</option>
+    <option>11:00</option>
+    <option>12:00</option>
+    <option>13:00</option>
+    <option>14:00</option>
+    <option>15:00</option>
+    <option>16:00</option>
+    <option>17:00</option>
+  </select><br>
+  <button onclick="randevuAl()">Randevu Al</button>
+</div>
 
 <script>
+// 🔥 Firebase Config
 const firebaseConfig = {
   apiKey: "AIzaSyBq36Zr3UaB5aWKl6O8U4ZNmag86tLm5M0",
   authDomain: "berber-randevu-b3c1e.firebaseapp.com",
@@ -30,18 +74,52 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
 const db = firebase.firestore();
 
-// Randevuları listele
-db.collection("randevular").orderBy("zaman","desc").onSnapshot(snapshot=>{
-  const liste=document.getElementById("liste");
-  liste.innerHTML="";
-  snapshot.forEach(doc=>{
-    const d=doc.data();
-    liste.innerHTML+=`<li>${d.email} | ${d.model} | ${d.fiyat} | ${d.tarih} ${d.saat}</li>`;
-  });
-});
-</script>
+let secilenModel = "";
+let secilenFiyat = "";
 
+function kayit() {
+  auth.createUserWithEmailAndPassword(email.value,password.value)
+    .then(()=>alert("Kayıt başarılı!"))
+    .catch(e=>alert(e.message));
+}
+
+function giris() {
+  auth.signInWithEmailAndPassword(email.value,password.value)
+    .then(()=>{
+      alert("Giriş başarılı!");
+      document.getElementById("modellerDiv").style.display="block";
+    })
+    .catch(e=>alert(e.message));
+}
+
+function modelSec(model,fiyat){
+  secilenModel=model;
+  secilenFiyat=fiyat;
+  document.getElementById("modellerDiv").style.display="none";
+  document.getElementById("randevuDiv").style.display="block";
+  document.getElementById("secim").innerText=model;
+  document.getElementById("fiyat").innerText="Fiyat: "+fiyat;
+}
+
+function randevuAl(){
+  const tarih=document.getElementById("tarih").value;
+  const saat=document.getElementById("saat").value;
+  const user=auth.currentUser;
+  if(!tarih || !saat) return alert("Tarih ve saat seçin!");
+  if(!user) return alert("Giriş yapmalısınız!");
+  db.collection("randevular").add({
+    uid:user.uid,
+    email:user.email,
+    model:secilenModel,
+    fiyat:secilenFiyat,
+    tarih:tarih,
+    saat:saat,
+    zaman:firebase.firestore.FieldValue.serverTimestamp()
+  }).then(()=>alert("Randevu alındı!"));
+}
+</script>
 </body>
 </html>
