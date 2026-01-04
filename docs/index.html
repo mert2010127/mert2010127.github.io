@@ -5,7 +5,7 @@
 <title>Ünye Elite Berber</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Firebase SDK (compat versiyon) -->
+<!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
@@ -62,7 +62,7 @@ button { cursor:pointer; background:black; color:white; border:none; }
 </div>
 
 <script>
-// 🔥 FIREBASE CONFIG
+// 🔥 Firebase Config
 const firebaseConfig = {
   apiKey: "AIzaSyBq36Zr3UaB5aWKl6O8U4ZNmag86tLm5M0",
   authDomain: "berber-randevu-b3c1e.firebaseapp.com",
@@ -117,7 +117,7 @@ function randevuAl(){
     fiyat:secilenFiyat,
     tarih:tarih,
     saat:saat,
-    zaman:new Date()
+    zaman:firebase.firestore.FieldValue.serverTimestamp()
   }).then(()=>alert("Randevu alındı!"));
 }
 </script>
