@@ -9,44 +9,144 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #111;
+  background: #f2f2f2;
 }
 
-/* NAVBAR */
+/* ÜST MENÜ */
 .navbar {
   background: black;
-  padding: 15px 30px;
+  padding: 15px;
+  color: white;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
-.logo {
-  color: gold;
-  font-size: 22px;
-  font-weight: bold;
-}
-.menu a {
+.navbar a {
   color: white;
   text-decoration: none;
-  margin-left: 20px;
+  margin-left: 15px;
 }
 
-/* HERO */
+/* BAŞLIK */
 .hero {
-  background: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438");
-  background-size: cover;
-  background-position: center;
-  height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #222;
   color: white;
+  padding: 60px 20px;
   text-align: center;
 }
-.hero h1 {
-  font-size: 40px;
-  text-shadow: 2px 2px 8px black;
+
+/* MODELLER */
+.section {
+  padding: 40px 20px;
+  text-align: center;
 }
 
-/* MODELLER*
+.models {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding-bottom: 15px;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card h3 {
+  margin: 10px 0;
+}
+
+.card button {
+  padding: 10px 15px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* ALT */
+footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENÜ -->
+<div class="navbar">
+  <div>Ünye Elite Berber</div>
+  <div>
+    <a href="#modeller">Modeller</a>
+    <a href="#iletisim">İletişim</a>
+  </div>
+</div>
+
+<!-- BAŞLIK -->
+<div class="hero">
+  <h1>Tarzını Seç</h1>
+  <p>Beğendiğin modeli göster, aynısını yapalım</p>
+</div>
+
+<!-- MODELLER -->
+<div class="section" id="modeller">
+  <h2>Saç Modelleri</h2>
+
+  <div class="models">
+
+    <div class="card">
+      <img src="https://picsum.photos/300/200?1">
+      <h3>Fade Kesim</h3>
+      <button onclick="sec('Fade Kesim')">Bu Modeli İstiyorum</button>
+    </div>
+
+    <div class="card">
+      <img src="https://picsum.photos/300/200?2">
+      <h3>Klasik Model</h3>
+      <button onclick="sec('Klasik Model')">Bu Modeli İstiyorum</button>
+    </div>
+
+    <div class="card">
+      <img src="https://picsum.photos/300/200?3">
+      <h3>Sakal + Saç</h3>
+      <button onclick="sec('Sakal + Saç')">Bu Modeli İstiyorum</button>
+    </div>
+
+    <div class="card">
+      <img src="https://picsum.photos/300/200?4">
+      <h3>Asker Tıraşı</h3>
+      <button onclick="sec('Asker Tıraşı')">Bu Modeli İstiyorum</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- İLETİŞİM -->
+<div class="section" id="iletisim">
+  <h2>Randevu</h2>
+  <p>📞 0535 123 45 67</p>
+</div>
+
+<footer>
+  © 2026 Ünye Elite Berber
+</footer>
+
+<script>
+function sec(model) {
+  alert(model + " seçildi!");
+}
+</script>
+
+</body>
+</html>
