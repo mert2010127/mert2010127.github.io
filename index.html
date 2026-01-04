@@ -2,18 +2,135 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Mert | Modern Web</title>
+  <title>Mert | Ana Sayfa</title>
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: Arial, sans-serif;
     }
 
     body {
-      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
-      color: white;
       min-height: 100vh;
+      background-color: #0f172a; /* koyu mavi */
+      color: white;
     }
+
+    /* NAVBAR */
+    .navbar {
+      height: 70px;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #020617;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .menu button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 16px;
+      margin-left: 20px;
+      cursor: pointer;
+    }
+
+    .menu button:hover {
+      color: #38bdf8;
+    }
+
+    /* HERO */
+    .hero {
+      height: calc(100vh - 70px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero-box {
+      max-width: 600px;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #cbd5f5;
+    }
+
+    .hero button {
+      padding: 14px 28px;
+      font-size: 17px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #38bdf8;
+      color: black;
+      font-weight: bold;
+    }
+
+    .hero button:hover {
+      background-color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="logo">MERT.dev</div>
+    <div class="menu">
+      <button onclick="degistir('ana')">Ana Sayfa</button>
+      <button onclick="degistir('hakkimda')">Hakkımda</button>
+      <button onclick="degistir('projeler')">Projeler</button>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-box">
+      <h1 id="baslik">Merhaba Dünya 👋</h1>
+      <p id="icerik">
+        Bu benim ilk düzgün çalışan web ana sayfam.
+      </p>
+      <button onclick="degistir('ana')">Başla 🚀</button>
+    </div>
+  </div>
+
+  <script>
+    function degistir(sayfa) {
+      const baslik = document.getElementById("baslik");
+      const icerik = document.getElementById("icerik");
+
+      if (sayfa === "ana") {
+        baslik.innerText = "Merhaba Dünya 👋";
+        icerik.innerText = "Bu benim ilk düzgün çalışan web ana sayfam.";
+      }
+
+      if (sayfa === "hakkimda") {
+        baslik.innerText = "Hakkımda";
+        icerik.innerText = "Ben Mert. Yazılıma erken yaşta başladım.";
+      }
+
+      if (sayfa === "projeler") {
+        baslik.innerText = "Projeler";
+        icerik.innerText = "Şu an bu site en büyük projem 😎";
+      }
+    }
+  </script>
+
+</body>
+</html>
