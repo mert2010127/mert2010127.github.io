@@ -2,94 +2,81 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Elite Erkek Kuaförü</title>
+  <title>Ünye Elite Berber</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #111;
-      color: white;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { background-color: #fff; color: #111; }
 
     /* NAVBAR */
     .navbar {
-      background-color: black;
-      padding: 15px;
+      background-color: #000;
+      padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-
-    .logo {
-      font-size: 22px;
-      font-weight: bold;
-      color: #ffd700;
+    .navbar .logo { color: #ffd700; font-size: 22px; font-weight: bold; }
+    .navbar .menu a {
+      color: white; text-decoration: none; margin-left: 20px; font-size: 16px;
     }
-
-    .menu a {
-      color: white;
-      text-decoration: none;
-      margin-left: 15px;
-      font-size: 15px;
-    }
-
-    .menu a:hover {
-      color: #ffd700;
-    }
+    .navbar .menu a:hover { color: #ffd700; }
 
     /* HERO */
     .hero {
-      height: 90vh;
-      background-image: url("https://images.unsplash.com/photo-1503951458645-643d53bfd90f");
+      background-image: url("https://images.unsplash.com/photo-1593642634367-d91a135587b5");
       background-size: cover;
       background-position: center;
+      height: 70vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 20px;
+      color: white;
     }
-
-    .hero h1 {
-      font-size: 40px;
-      margin-bottom: 15px;
-      text-shadow: 2px 2px 8px black;
-    }
-
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 25px;
-      text-shadow: 2px 2px 8px black;
-    }
-
-    .hero button {
-      padding: 15px 30px;
-      font-size: 18px;
-      background-color: #ffd700;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-    }
+    .hero h1 { font-size: 42px; margin-bottom: 10px; text-shadow: 2px 2px 8px #000; }
+    .hero p { font-size: 20px; margin-bottom: 20px; text-shadow: 1px 1px 5px #000; }
 
     /* SECTIONS */
     section {
       padding: 50px 20px;
       text-align: center;
     }
-
     .services div {
       margin: 15px 0;
       font-size: 18px;
     }
 
+    /* CONTACT */
+    .contact-info div {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    /* BUTTON */
+    .btn {
+      padding: 12px 28px;
+      background-color: #ffd700;
+      border: none;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 6px;
+      font-size: 17px;
+    }
+    .btn:hover { background-color: white; }
+
     /* FOOTER */
     footer {
-      background-color: black;
-      padding: 20px;
+      background-color: #000;
+      padding: 15px;
       text-align: center;
+      color: white;
       font-size: 14px;
     }
   </style>
@@ -98,55 +85,52 @@
 
   <!-- NAVBAR -->
   <div class="navbar">
-    <div class="logo">Elite Berber</div>
+    <div class="logo">Ünye Elite Berber</div>
     <div class="menu">
-      <a href="#hakkimizda">Hakkımızda</a>
-      <a href="#hizmetler">Hizmetler</a>
-      <a href="#iletisim">İletişim</a>
+      <a href="#hero">Anasayfa</a>
+      <a href="#services">Hizmetler</a>
+      <a href="#contact">İletişim</a>
     </div>
   </div>
 
   <!-- HERO -->
-  <div class="hero">
+  <section id="hero" class="hero">
     <div>
-      <h1>Elite Erkek Kuaförü</h1>
-      <p>Profesyonel saç & sakal tasarımı</p>
-      <button onclick="randevu()">Randevu Al</button>
+      <h1>Profesyonel Erkek Kuaförü</h1>
+      <p>Modern saç & sakal kesimi hizmeti</p>
+      <button class="btn" onclick="window.location.href='#contact'">Randevu Al</button>
     </div>
-  </div>
-
-  <!-- HAKKIMIZDA -->
-  <section id="hakkimizda">
-    <h2>Hakkımızda</h2>
-    <p>Yılların tecrübesiyle modern ve klasik saç kesimi hizmeti sunuyoruz.</p>
   </section>
 
-  <!-- HİZMETLER -->
-  <section id="hizmetler" class="services">
+  <!-- SERVICES -->
+  <section id="services">
     <h2>Hizmetlerimiz</h2>
-    <div>✂️ Saç Kesimi</div>
-    <div>🧔 Sakal Tıraşı</div>
-    <div>💆 Cilt Bakımı</div>
-    <div>🔥 Fade & Modern Kesimler</div>
+    <div class="services">
+      <div>✂️ Saç Kesimi</div>
+      <div>🧔 Sakal Tıraşı</div>
+      <div>💈 Modern Tasarımlar</div>
+      <div>💆 Cilt & Bakım Hizmetleri</div>
+    </div>
   </section>
 
-  <!-- İLETİŞİM -->
-  <section id="iletisim">
+  <!-- CONTACT -->
+  <section id="contact">
     <h2>İletişim</h2>
-    <p>📍 Merkez Mahallesi No:12</p>
-    <p>📞 0555 555 55 55</p>
+    <div class="contact-info">
+      <div>📍 Merkez Mah. Berber Sk. No:10 Ünye / Ordu</div>
+      <div>📞 0535 123 45 67</div>
+      <div>📧 info@unyebarber.com</div>
+      <div>
+        <button class="btn" onclick="window.location.href='https://wa.me/905351234567'">
+          WhatsApp ile Randevu
+        </button>
+      </div>
+    </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    © 2026 Elite Erkek Kuaförü | Tüm Hakları Saklıdır
+    © 2026 Ünye Elite Berber — Tüm Hakları Saklıdır
   </footer>
-
-  <script>
-    function randevu() {
-      window.location.href = "https://wa.me/905555555555";
-    }
-  </script>
 
 </body>
 </html>
