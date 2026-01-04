@@ -1,136 +1,52 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Ünye Elite Berber</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Ünye Elite Berber</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-    body { background-color: #fff; color: #111; }
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #111;
+}
 
-    /* NAVBAR */
-    .navbar {
-      background-color: #000;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .navbar .logo { color: #ffd700; font-size: 22px; font-weight: bold; }
-    .navbar .menu a {
-      color: white; text-decoration: none; margin-left: 20px; font-size: 16px;
-    }
-    .navbar .menu a:hover { color: #ffd700; }
+/* NAVBAR */
+.navbar {
+  background: black;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  color: gold;
+  font-size: 22px;
+  font-weight: bold;
+}
+.menu a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
 
-    /* HERO */
-    .hero {
-      background-image: url("https://images.unsplash.com/photo-1593642634367-d91a135587b5");
-      background-size: cover;
-      background-position: center;
-      height: 70vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-      color: white;
-    }
-    .hero h1 { font-size: 42px; margin-bottom: 10px; text-shadow: 2px 2px 8px #000; }
-    .hero p { font-size: 20px; margin-bottom: 20px; text-shadow: 1px 1px 5px #000; }
+/* HERO */
+.hero {
+  background: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438");
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 40px;
+  text-shadow: 2px 2px 8px black;
+}
 
-    /* SECTIONS */
-    section {
-      padding: 50px 20px;
-      text-align: center;
-    }
-    .services div {
-      margin: 15px 0;
-      font-size: 18px;
-    }
-
-    /* CONTACT */
-    .contact-info div {
-      margin: 10px 0;
-      font-size: 18px;
-    }
-
-    /* BUTTON */
-    .btn {
-      padding: 12px 28px;
-      background-color: #ffd700;
-      border: none;
-      color: black;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 6px;
-      font-size: 17px;
-    }
-    .btn:hover { background-color: white; }
-
-    /* FOOTER */
-    footer {
-      background-color: #000;
-      padding: 15px;
-      text-align: center;
-      color: white;
-      font-size: 14px;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- NAVBAR -->
-  <div class="navbar">
-    <div class="logo">Ünye Elite Berber</div>
-    <div class="menu">
-      <a href="#hero">Anasayfa</a>
-      <a href="#services">Hizmetler</a>
-      <a href="#contact">İletişim</a>
-    </div>
-  </div>
-
-  <!-- HERO -->
-  <section id="hero" class="hero">
-    <div>
-      <h1>Profesyonel Erkek Kuaförü</h1>
-      <p>Modern saç & sakal kesimi hizmeti</p>
-      <button class="btn" onclick="window.location.href='#contact'">Randevu Al</button>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services">
-    <h2>Hizmetlerimiz</h2>
-    <div class="services">
-      <div>✂️ Saç Kesimi</div>
-      <div>🧔 Sakal Tıraşı</div>
-      <div>💈 Modern Tasarımlar</div>
-      <div>💆 Cilt & Bakım Hizmetleri</div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>İletişim</h2>
-    <div class="contact-info">
-      <div>📍 Merkez Mah. Berber Sk. No:10 Ünye / Ordu</div>
-      <div>📞 0535 123 45 67</div>
-      <div>📧 info@unyebarber.com</div>
-      <div>
-        <button class="btn" onclick="window.location.href='https://wa.me/905351234567'">
-          WhatsApp ile Randevu
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    © 2026 Ünye Elite Berber — Tüm Hakları Saklıdır
-  </footer>
-
-</body>
-</html>
+/* MODELLER*
