@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Navbarlı Web Site</title>
+  <title>Mert | Web Site</title>
 
   <style>
     * {
@@ -13,17 +13,26 @@
     }
 
     body {
-  background-image: url("bg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-}
+      background-image: url("bg.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      color: white;
+    }
+
+    /* KARARTMA EFEKTİ */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: -1;
     }
 
     /* NAVBAR */
     .navbar {
-      background-color: #111;
+      background: rgba(0,0,0,0.6);
       padding: 15px 30px;
       display: flex;
       justify-content: space-between;
@@ -31,7 +40,6 @@
     }
 
     .logo {
-      color: white;
       font-size: 22px;
       font-weight: bold;
     }
@@ -39,72 +47,3 @@
     .menu a {
       color: white;
       text-decoration: none;
-      margin-left: 20px;
-      font-size: 16px;
-    }
-
-    .menu a:hover {
-      color: #00ffcc;
-    }
-
-    /* CONTENT */
-    .container {
-      text-align: center;
-      margin-top: 100px;
-    }
-
-    h1 {
-      margin-bottom: 20px;
-    }
-
-    button {
-      padding: 15px 30px;
-      font-size: 18px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      background-color: black;
-      color: white;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- NAVBAR -->
-  <div class="navbar">
-    <div class="logo">MERT DEV</div>
-    <div class="menu">
-      <a href="#">Ana Sayfa</a>
-      <a href="#">Hakkımda</a>
-      <a href="#">Projeler</a>
-      <a href="#">İletişim</a>
-    </div>
-  </div>
-
-  <!-- CONTENT -->
-  <div class="container">
-    <h1 id="yazi">Ana Sayfa</h1>
-    <button onclick="degistir()">Tıkla</button>
-  </div>
-
-  <script>
-    let durum = false;
-
-    function degistir() {
-      const yazi = document.getElementById("yazi");
-
-      if (durum) {
-        yazi.innerText = "Ana Sayfa";
-        document.body.style.backgroundColor = "#f4f4f4";
-      } else {
-        yazi.innerText = "Butona Bastın 😎";
-        document.body.style.backgroundColor = "#1e1e1e";
-      }
-
-      durum = !durum;
-    }
-  </script>
-
-</body>
-</html>
-
