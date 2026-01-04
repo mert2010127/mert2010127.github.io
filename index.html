@@ -2,109 +2,18 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Mert | Web Site</title>
+  <title>Mert | Modern Web</title>
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     body {
-      background-image: url("bg.jpg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+      color: white;
       min-height: 100vh;
-      color: white;
     }
-
-    /* NAVBAR */
-    .navbar {
-      background: rgba(0,0,0,0.7);
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    .menu a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-size: 16px;
-    }
-
-    .menu a:hover {
-      color: #00ffcc;
-    }
-
-    /* CONTENT */
-    .container {
-      text-align: center;
-      margin-top: 120px;
-      background: rgba(0,0,0,0.6);
-      padding: 40px;
-      border-radius: 15px;
-      width: fit-content;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    h1 {
-      margin-bottom: 20px;
-      font-size: 42px;
-    }
-
-    button {
-      padding: 15px 30px;
-      font-size: 18px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      background-color: #00ffcc;
-      color: black;
-      font-weight: bold;
-    }
-
-    button:hover {
-      background-color: white;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- NAVBAR -->
-  <div class="navbar">
-    <div class="logo">MERT DEV 👑</div>
-    <div class="menu">
-      <a href="#">Ana Sayfa</a>
-      <a href="#">Hakkımda</a>
-      <a href="#">Projeler</a>
-      <a href="#">İletişim</a>
-    </div>
-  </div>
-
-  <!-- CONTENT -->
-  <div class="container">
-    <h1 id="yazi">MERHABA DÜNYA 🌍</h1>
-    <button onclick="degistir()">Tıkla Kral 😎</button>
-  </div>
-
-  <script>
-    let durum = false;
-
-    function degistir() {
-      const yazi = document.getElementById("yazi");
-
-      if (durum) {
-        yazi.innerText = "MERHABA DÜNYA 🌍";
-      } else {
-        yazi.innerText = "JavaScript Çalışıy
