@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Admin Panel - Ünye Elite Berber</title>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<style>
+body { font-family: Arial; background:#f2f2f2; margin:0; padding:20px; }
+h2{text-align:center;}
+ul{list-style:none; padding:0; max-width:600px; margin:auto;}
+li{background:white; margin:10px 0; padding:15px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.2);}
+</style>
+</head>
+<body>
+
+<h2>Randevular</h2>
+<ul id="liste"></ul>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyBq36Zr3UaB5aWKl6O8U4ZNmag86tLm5M0",
+  authDomain: "berber-randevu-b3c1e.firebaseapp.com",
+  projectId: "berber-randevu-b3c1e",
+  storageBucket: "berber-randevu-b3c1e.appspot.com",
+  messagingSenderId: "336472169354",
+  appId: "1:336472169354:web:1dca2284b006cc2aa88673",
+  measurementId: "G-DZQE3CX0FG"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+db.collection("randevular").orderBy("zaman","desc").onSnapshot(snapshot=>{
+  const liste=document.getElementById("liste");
+  liste.innerHTML="";
+  snapshot.forEach(doc=>{
+    const d=doc.data();
+    liste.innerHTML+=`<li>${d.email} | ${d.model} | ${d.fiyat} | ${d.tarih} ${d.saat}</li>`;
+  });
+});
+</script>
+
+</body>
+</html>
